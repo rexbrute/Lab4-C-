@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+
+
+class Vector
+{
+    int pozitie,val,N,i,p;
+public:
+    int v[10];
+    void citeste();
+    void afisare();
+    void adaugare();
+    void eliminare();
+
+};
+
+void Vector::citeste()
+{
+
+    printf("Numar elemente vector");
+    cin>>N;
+    printf("\nIntroduceti numere:");
+    for( i=0; i<N; i++)
+        scanf("%d",&v[i]);
+}
+void Vector::afisare()
+{
+
+    for( i=0; i<N; i++)
+        printf("%d  ",v[i]);
+
+}
+void Vector::adaugare()
+{
+
+    printf("\nValoarea si pozitia noului element:");
+    cin>>val>>p;
+    N++;
+    for( i = N - 1 ; i >= p ; i --)
+        v[i] = v[i-1];
+    v[p] = val;
+    for ( i = 0; i < N; i++)
+        cout<<v[i]<<" ";
+}
+void Vector::eliminare()
+{
+    printf("\nPozitie eliminare:");
+    cin>>p;
+    for( i = p ; i < N - 1; i ++)
+        v[i] = v[i+1];
+    N --;
+    for ( i = 0; i < N; i++)
+        cout<<v[i]<<" ";
+}
+
+int main()
+{
+
+    Vector p;
+    p.citeste();
+    p.afisare();
+    p.adaugare();
+p.eliminare();
+
+
+    return 0;
+}
